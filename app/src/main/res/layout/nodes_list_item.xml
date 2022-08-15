@@ -13,6 +13,7 @@
         tools:layout_editor_absoluteX="1dp"
         app:cardCornerRadius="3dp"
         android:padding="5dp"
+
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
