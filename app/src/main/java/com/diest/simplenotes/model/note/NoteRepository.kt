@@ -1,11 +1,13 @@
 package com.diest.simplenotes.model.note
 
+import com.diest.simplenotes.model.note.entity.NoteModel
+
 interface NoteRepository {
 
-    fun getAllNotes(): Map<String, String?>
+    fun getAllNotes(): List<NoteModel>
 
-    fun updateNote(title: String, text: String)
+    fun updateNote(note: NoteModel)
 
-    fun deleteNote(title: String)
+    fun deleteNote(note: NoteModel)
 
 }

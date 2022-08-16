@@ -30,7 +30,10 @@ class AddNoteFragment : Fragment() {
     ): View? {
         val model: AddNoteViewModel by viewModels()
 
+
         _binding = FragmentAddNoteBinding.inflate(inflater, container, false)
+        binding.btAddNote.setOnClickListener {
+            model.addNote(NoteModel(binding.tvNoteTitle.text.toString(), binding.tvNoteText.text.toString())) }
         return binding.root
 
     }
