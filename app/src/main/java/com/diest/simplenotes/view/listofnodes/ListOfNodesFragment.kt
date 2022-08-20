@@ -1,51 +1,65 @@
 package com.diest.simplenotes.view.listofnodes
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.diest.simplenotes.R
 import com.diest.simplenotes.databinding.FragmentListNodesBinding
+import com.diest.simplenotes.model.note.entity.NoteModel
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class ListOfNodesFragment : Fragment() {
+class ListOfNodesFragment : Fragment(), NoteClickListener {
 
     private var _binding: FragmentListNodesBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+    private val vm: ListOfNodesViewModel by viewModels()
+    var adapter = ListOfNodesAdapter(this)
 
-    init {
-
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentListNodesBinding.inflate(inflater, container, false)
+
+        vm.getAllNote().observe(this.viewLifecycleOwner){
+            adapter.setNodes(it)
+        }
+        adapter.setNodes(vm.getAllNote().value ?: listOf())
+        binding.rvNodesList.layoutManager = LinearLayoutManager(this.context)
+        binding.rvNodesList.adapter = adapter
+
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        /*R.menu . .setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }*/
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(note: NoteModel) {
+        Toast.makeText(this.context, "Click on ${note.text}", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onLongClick(note: NoteModel): Boolean {
+        //Toast.makeText(this.context, "Loooong click on ${note.text}", Toast.LENGTH_LONG).show()
+        vm.removeNote(note)
+        return true
     }
 }

@@ -22,7 +22,9 @@ abstract class NoteRoomDatabase: RoomDatabase() {
                     context.applicationContext,
                     NoteRoomDatabase::class.java,
                     "note_database"
-                ).build()
+                )
+                    .allowMainThreadQueries()
+                    .build()
                 INSTANCE = instance
                 instance
             }

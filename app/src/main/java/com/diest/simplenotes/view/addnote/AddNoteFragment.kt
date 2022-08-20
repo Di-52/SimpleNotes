@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.diest.simplenotes.R
 import com.diest.simplenotes.databinding.FragmentAddNoteBinding
 import com.diest.simplenotes.model.note.entity.NoteModel
+import com.diest.simplenotes.view.listofnodes.ListOfNodesViewModel
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -23,17 +24,19 @@ class AddNoteFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val model: AddNoteViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val model: AddNoteViewModel by viewModels()
+
 
 
         _binding = FragmentAddNoteBinding.inflate(inflater, container, false)
-        binding.btAddNote.setOnClickListener {
+        /*binding.btAddNote.setOnClickListener {
             model.addNote(NoteModel(binding.tvNoteTitle.text.toString(), binding.tvNoteText.text.toString())) }
+*/
         return binding.root
 
     }
@@ -42,9 +45,12 @@ class AddNoteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btAddNote.setOnClickListener {
+            model.addNote(binding.etNoteTitle.text.toString(), binding.etNoteText.text.toString())
 
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
+
+
     }
 
     override fun onDestroyView() {
