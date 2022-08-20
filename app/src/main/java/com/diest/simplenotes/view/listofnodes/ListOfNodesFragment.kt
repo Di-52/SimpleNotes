@@ -1,30 +1,23 @@
 package com.diest.simplenotes.view.listofnodes
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.diest.simplenotes.R
 import com.diest.simplenotes.databinding.FragmentListNodesBinding
 import com.diest.simplenotes.model.note.entity.NoteModel
+import com.diest.simplenotes.view.NodesViewModel
 
 class ListOfNodesFragment : Fragment(), NoteClickListener {
 
     private var _binding: FragmentListNodesBinding? = null
 
     private val binding get() = _binding!!
-    private val vm: ListOfNodesViewModel by viewModels()
+    private val vm: NodesViewModel by viewModels()
     var adapter = ListOfNodesAdapter(this)
 
     override fun onCreateView(

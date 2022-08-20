@@ -6,13 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.diest.simplenotes.R
 import com.diest.simplenotes.databinding.FragmentAddNoteBinding
-import com.diest.simplenotes.model.note.entity.NoteModel
-import com.diest.simplenotes.view.listofnodes.ListOfNodesViewModel
+import com.diest.simplenotes.view.NodesViewModel
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -24,7 +21,7 @@ class AddNoteFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    private val model: AddNoteViewModel by viewModels()
+    private val model: NodesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
