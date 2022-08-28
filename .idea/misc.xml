@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android application/SimpleNotes/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
+        <entry key="..\:/Android application/SimpleNotes/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.196" />
+        <entry key="..\:/Android application/SimpleNotes/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
+        <entry key="..\:/Android application/SimpleNotes/app/src/main/res/drawable/ic_ok.xml" value="0.196" />
         <entry key="..\:/Android application/SimpleNotes/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Android application/SimpleNotes/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/Android application/SimpleNotes/app/src/main/res/layout/fragment_add_note.xml" value="0.2" />
         <entry key="..\:/Android application/SimpleNotes/app/src/main/res/layout/fragment_first.xml" value="0.18802083333333333" />
         <entry key="..\:/Android application/SimpleNotes/app/src/main/res/layout/fragment_list_nodes.xml" value="0.18802083333333333" />
         <entry key="..\:/Android application/SimpleNotes/app/src/main/res/layout/node_list_item_2.xml" value="0.18697916666666667" />
-        <entry key="..\:/Android application/SimpleNotes/app/src/main/res/layout/nodes_list_item.xml" value="0.33" />
+        <entry key="..\:/Android application/SimpleNotes/app/src/main/res/layout/nodes_list_item.xml" value="0.5" />
         <entry key="..\:/Android application/SimpleNotes/app/src/main/res/menu/menu_main.xml" value="0.18802083333333333" />
       </map>
     </option>
