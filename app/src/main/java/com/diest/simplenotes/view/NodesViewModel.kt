@@ -33,6 +33,12 @@ class NodesViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun updateNote(id: Int?, title: String, text: String?){
+        viewModelScope.launch(Dispatchers.IO) {
+            rep.updateNote(NoteModel(id = id, title = title, text = text))
+        }
+    }
+
     fun removeNote(note: NoteModel){
         viewModelScope.launch(Dispatchers.IO){
             rep.deleteNote(note)
